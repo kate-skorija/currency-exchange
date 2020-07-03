@@ -20,21 +20,26 @@ $(document).ready(function() {
     }  
 
     function convertCurrency(apiResponseParam){
-      let convertedAmount;
-      if (otherCurrency === "AED") {
-        convertedAmount = (usd * (apiResponseParam.conversion_rates.AED).toFixed(2));
-      } else if (otherCurrency === "ARS") {
-        convertedAmount = (usd * (apiResponseParam.conversion_rates.ARS).toFixed(2));
-      } else if (otherCurrency === "AUD") {
-        convertedAmount = (usd * (apiResponseParam.conversion_rates.AUD).toFixed(2));
-      } else if (otherCurrency === "BGN") {
-        convertedAmount = (usd * (apiResponseParam.conversion_rates.BGN).toFixed(2));
-      } else if (otherCurrency === "BRL") {
-        convertedAmount = (usd * (apiResponseParam.conversion_rates.BRL).toFixed(2));
-      } else {
-        convertedAmount = false;
-      }
+      let convertedAmount = 0;
+      const currencies = Object.values(apiResponseParam.conversion_rates);
+      currencies.forEach(function(currencyRate) {
+        convertedAmount = (usd * (currencyRate).toFixed(2));
+      });
       return convertedAmount;
+      // if (otherCurrency === "AED") {
+      //   convertedAmount = (usd * (apiResponseParam.conversion_rates.AED).toFixed(2));
+      // } else if (otherCurrency === "ARS") {
+      //   convertedAmount = (usd * (apiResponseParam.conversion_rates.ARS).toFixed(2));
+      // } else if (otherCurrency === "AUD") {
+      //   convertedAmount = (usd * (apiResponseParam.conversion_rates.AUD).toFixed(2));
+      // } else if (otherCurrency === "BGN") {
+      //   convertedAmount = (usd * (apiResponseParam.conversion_rates.BGN).toFixed(2));
+      // } else if (otherCurrency === "BRL") {
+      //   convertedAmount = (usd * (apiResponseParam.conversion_rates.BRL).toFixed(2));
+      // } else {
+      //   convertedAmount = false;
+      // }
+      // return convertedAmount;
     }
 
     function displayCurrency(convertedAmountParam) {
