@@ -1,21 +1,42 @@
 body {
   padding: 30px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  background-color: honeydew;
 }
 
 header {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+}
+
+header p {
+  font-size: 30px;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: bold;
 }
 
 select {
-  height: 30px;
-  width: 175px;
+  height: 50px;
+  width: 272px;
   margin-right: 10px;
+  font-size: 20px;
+  padding-top: 6px;
 }
 
 .form-group {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .col-xs-3 {
   padding-right: 20px;
+  margin-bottom: 10px;
+}
+
+button {
+  font-size: 25px;
+  padding: 5px 10px;
+  border-radius: 3px;
 }

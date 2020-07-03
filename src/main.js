@@ -23,7 +23,7 @@ $(document).ready(function() {
       let convertedAmount;
       const currencies = Object.keys(apiResponseParam.conversion_rates);
       if (!apiResponseParam.conversion_rates) {
-        $("#results").html(`There has been an error processing your request: ${apiResponseParam}.`)
+        $("#results").html(`There has been an error processing your request: ${apiResponseParam}.`);
       } else if (!otherCurrency) {
         $("#results").text("This currency exchanger does not support that particular currency. Please select another.");
       } else {
