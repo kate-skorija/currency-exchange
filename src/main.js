@@ -30,7 +30,7 @@ $(document).ready(function() {
         currencies.forEach(function(currency) {
           if (otherCurrency === currency) {
             convertedAmount = (usd * apiResponseParam.conversion_rates[currency]).toFixed(2);
-            $("#results").text(`${convertedAmount} ${otherCurrency}`);
+            $("#results").html(`&rarr; ${convertedAmount} ${otherCurrency}`);
           }
         });
       }
