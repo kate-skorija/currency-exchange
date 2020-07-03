@@ -22,25 +22,18 @@ $(document).ready(function() {
     function displayCurrency(apiResponseParam) {
       let convertedAmount;
       const currencies = Object.keys(apiResponseParam.conversion_rates);
-      currencies.forEach(function(currency) {
-        if (otherCurrency === currency) {
-          convertedAmount = (usd * apiResponseParam.conversion_rates[currency]).toFixed(2);
-          $("#results").text(`${convertedAmount} ${otherCurrency}`);
-        } else {
-          $("#results").text("This currency exchanger does not support that particular currency. Please select another.");
-        }
-      });
+      if (!otherCurrency) {
+        $("#results").text("This currency exchanger does not support that particular currency. Please select another.");
+      } else {
+        currencies.forEach(function(currency) {
+          if (otherCurrency === currency) {
+            convertedAmount = (usd * apiResponseParam.conversion_rates[currency]).toFixed(2);
+            $("#results").text(`${convertedAmount} ${otherCurrency}`);
+          }
+        });
+      }
     }
 
     getResults();
   });
 });
-
-
-// function convertCurrency(apiResponseParam){
-    //   let convertedAmountsArray = [];
-    //   const currencyRates = Object.values(apiResponseParam.conversion_rates);
-    //   currencies.forEach(function(currencyRate) {
-    //     convertedAmountsArray.push(usd * (currencyRate).toFixed(2));
-    //   });
-    //   return convertedAmountsArray;
