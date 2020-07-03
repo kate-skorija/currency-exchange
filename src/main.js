@@ -15,39 +15,50 @@ $(document).ready(function() {
       if (apiResponse instanceof Error) {
         $("#results").html(`There has been an error processing your request: ${apiResponse}.`);
       } else {
-        displayCurrency(convertCurrency(apiResponse));
+        console.log(displayCurrency(apiResponse));
+        displayCurrency(apiResponse);
       }
     }  
 
-    function convertCurrency(apiResponseParam){
-      let convertedAmount = 0;
-      const currencies = Object.values(apiResponseParam.conversion_rates);
-      currencies.forEach(function(currencyRate) {
-        convertedAmount = (usd * (currencyRate).toFixed(2));
-      });
-      return convertedAmount;
-      // if (otherCurrency === "AED") {
-      //   convertedAmount = (usd * (apiResponseParam.conversion_rates.AED).toFixed(2));
-      // } else if (otherCurrency === "ARS") {
-      //   convertedAmount = (usd * (apiResponseParam.conversion_rates.ARS).toFixed(2));
-      // } else if (otherCurrency === "AUD") {
-      //   convertedAmount = (usd * (apiResponseParam.conversion_rates.AUD).toFixed(2));
-      // } else if (otherCurrency === "BGN") {
-      //   convertedAmount = (usd * (apiResponseParam.conversion_rates.BGN).toFixed(2));
-      // } else if (otherCurrency === "BRL") {
-      //   convertedAmount = (usd * (apiResponseParam.conversion_rates.BRL).toFixed(2));
-      // } else {
-      //   convertedAmount = false;
-      // }
-      // return convertedAmount;
-    }
+    // function convertCurrency(apiResponseParam){
+    //   let convertedAmountsArray = [];
+    //   const currencyRates = Object.values(apiResponseParam.conversion_rates);
+    //   currencies.forEach(function(currencyRate) {
+    //     convertedAmountsArray.push(usd * (currencyRate).toFixed(2));
+    //   });
+    //   return convertedAmountsArray;
 
-    function displayCurrency(convertedAmountParam) {
-      if (!convertedAmountParam) {
-        $("#results").text("This currency exchanger does not support that particular currency. Please select another.");
-      } else {
-      $("#results").text(`${convertedAmountParam} ${otherCurrency}`);
-      }
+    // if (otherCurrency === "AED") {
+    //   convertedAmount = (usd * (apiResponseParam.conversion_rates.AED).toFixed(2));
+    // } else if (otherCurrency === "ARS") {
+    //   convertedAmount = (usd * (apiResponseParam.conversion_rates.ARS).toFixed(2));
+    // } else if (otherCurrency === "AUD") {
+    //   convertedAmount = (usd * (apiResponseParam.conversion_rates.AUD).toFixed(2));
+    // } else if (otherCurrency === "BGN") {
+    //   convertedAmount = (usd * (apiResponseParam.conversion_rates.BGN).toFixed(2));
+    // } else if (otherCurrency === "BRL") {
+    //   convertedAmount = (usd * (apiResponseParam.conversion_rates.BRL).toFixed(2));
+    // } else {
+    //   convertedAmount = false;
+    // }
+    // return convertedAmount;
+    // }
+
+    function displayCurrency(apiResponseParam) {
+      let convertedAmount;
+      const currencies = Object.keys(apiResponseParam.conversion_rates);
+      currencies.forEach(function(currency) {
+        if (otherCurrency === currency) {
+          convertedAmount = (usd * apiResponseParam.conversion_rates[currency]).toFixed(2);
+          $("#results").text(`${convertedAmount} ${otherCurrency}`);
+        }
+      });
+      // if (!convertedAmountParam) {
+      //   $("#results").text("This currency exchanger does not support that particular currency. Please select another.");
+      // } else {
+
+      // $("#results").text(`${convertedAmountParam} ${otherCurrency}`);
+      // }
     }
 
     getResults();
