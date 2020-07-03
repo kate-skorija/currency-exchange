@@ -10,35 +10,47 @@ $(document).ready(function() {
     const usd = parseInt($("#usdInput").val());
     const otherCurrency = $("#otherCurrency").val();
 
-    async function displayResults() {
+    async function getResults() {
       const apiResponse = await getRates();
       if (apiResponse instanceof Error) {
         $("#results").html(`There has been an error processing your request: ${apiResponse}.`);
       } else {
-        convertCurrency(apiResponse);
+        displayCurrency(convertCurrency(apiResponse));
+      }
+    }  
+
+    function convertCurrency(apiResponseParam){
+      let convertedAmount;
+      if (otherCurrency === "AED") {
+        convertedAmount = (usd * (apiResponseParam.conversion_rates.AED).toFixed(2));
+      } else if (otherCurrency === "ARS") {
+        convertedAmount = (usd * (apiResponseParam.conversion_rates.ARS).toFixed(2));
+      } else if (otherCurrency === "AUD") {
+        convertedAmount = (usd * (apiResponseParam.conversion_rates.AUD).toFixed(2));
+      } else if (otherCurrency === "BGN") {
+        convertedAmount = (usd * (apiResponseParam.conversion_rates.BGN).toFixed(2));
+      } else if (otherCurrency === "BRL") {
+        convertedAmount = (usd * (apiResponseParam.conversion_rates.BRL).toFixed(2));
+      } else {
+        convertedAmount = false;
+      }
+      return convertedAmount;
+    }
+
+    function displayCurrency(convertedAmountParam) {
+      if (!convertedAmountParam) {
+        $("#results").text("This currency exchanger does not support that particular currency. Please select another.");
+      } else {
+      $("#results").text(`${convertedAmountParam} ${otherCurrency}`);
       }
     }
 
-    function convertCurrency(responseParam){
-      if (otherCurrency === "AED") {
-        let convertedAmount = (usd * (responseParam.conversion_rates.AED).toFixed(2));
-        $("#results").text(`${convertedAmount} AED`);
-      } else if (otherCurrency === "ARS") {
-        let convertedAmount = (usd * (responseParam.conversion_rates.ARS).toFixed(2));
-        $("#results").text(`${convertedAmount} ARS`);
-      } else if (otherCurrency === "AUD") {
-        let convertedAmount = (usd * (responseParam.conversion_rates.AUD).toFixed(2));
-        $("#results").text(`${convertedAmount} AUD`);
-      } else if (otherCurrency === "BGN") {
-        let convertedAmount = (usd * (responseParam.conversion_rates.BGN).toFixed(2));
-        $("#results").text(`${convertedAmount} BGN`);
-      } else if (otherCurrency === "BRL") {
-        let convertedAmount = (usd * (responseParam.conversion_rates.BRL).toFixed(2));
-        $("#results").text(`${convertedAmount} BRL`);
-      } else {
-        $("#results").text("This currency exchanger does not support that particular currency. Please select another.");
-      } 
-    }
-    displayResults();
+    getResults();
   });
 });
+
+
+// function convertCurrency(responseParam) {
+//   let convertedAmount = usd * (responseParam.conversion_rate.otherCurrency)
+//   $("#results").text(`${convertedAmount} ${otherCurrency}`);
+// }
