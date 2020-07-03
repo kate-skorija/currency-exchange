@@ -3,9 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Currency Exchanger</title>
   </head>
   <body>
-    
+    <div class="container-fluid">
+      <h1>Currency Exchanger</h1>
+      <h2>Enter an amount in USD, then select another currency to convert your entered amount.</h2>
+      <form>
+        <div class="form-group">
+          <label for="usdInput">Amount in USD:</label>
+          <input id="usdInput" type="number" class="form-control" required>
+        </div>
+        <select class="form-group" id="otherCurrency">
+          <option value="AED">United Arab Emirate dirham</option>
+          <option value="ARS">Argentine Peso</option>
+          <option value="AUD">Australian Dollar</option>
+          <option value="BGN">Bulgarian Lev</option>
+          <option value="BRL">Bralzilian Real</option>
+        </select>
+        <button class="btn btn-dark" type="submit">Exchange!</button>
+      </form>
+    </div>
   </body>
 </html>
