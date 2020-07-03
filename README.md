@@ -6,7 +6,7 @@
 
 ## Description
 
-This is a currency exchange rate website. It calls on an exchange rate API to ensure the user recieves the most recent exchange rate available. 
+This is a currency exchanger website. It calls on an exchange rate API to ensure the user recieves the most recent exchange rate available. 
 
 ## Specifications
 
@@ -15,7 +15,7 @@ This is a currency exchange rate website. It calls on an exchange rate API to en
   * Output: Program takes in $132 USD as input
 
 **Behavior**: Program will allow users to specify another currency to convert the USD amount
-  * Input: User selects the Mexican peso
+  * Input: User selects the Mexican Peso
   * Output: Program accounts for user selection
 
 **Behavior**: Program will call the exchange rate API to ensure the currency exchange rate is correct
@@ -24,7 +24,7 @@ This is a currency exchange rate website. It calls on an exchange rate API to en
 
 **Behavior**: Program will convert USD amount into specified currency amount
   * Input: 132.00 USD
-  * Output: 2969.10 peso
+  * Output: 2981.37 MXN
 
 ## Setup/Installation Requirements
 
@@ -51,7 +51,7 @@ To Open:
 
 7. Copy and paste your personal API key to store it in your .env file. Example: API_KEY = YOUR UNIQUE API KEY GOES HERE.
 
-8. Once your API key is set up, open the project in the browser of your choice by dragging and dropping the `index.html` file into a browser window.
+8. Once your API key is set up, enter `$ npm install` in your terminal to install all webpack plugins; enter `$ npm run start` to see the project in the browser.
 
 ## Known Bugs
 
