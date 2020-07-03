@@ -1,30 +1,30 @@
-# README Template
+# Currency Exchange
 
-#### Exercise for Epicodus, 06.19.2020
+#### Asynchrony and API Code Review Exercise for Epicodus, 07.02.2020
 
 ### By Kate Skorija
 
 ## Description
 
-This is a website for... You may view the published site on [GitHub Pages](https://kate-skorija.github.io/pizza-parlor/).
+This is a currency exchange rate website. It calls on an exchange rate API to ensure the user recieves the most recent exchange rate available. 
 
 ## Specifications
 
-**Behavior**: Program will only let users select a pizza size
-  * Input: User selects "Medium"
-  * Output: Medium pizza object is created
+**Behavior**: Program will allow users to enter an amount in USD
+  * Input: 132
+  * Output: Program takes in $132 USD as input
 
-**Behavior**: Program will let users select toppings for their pizza
-  * Input: User selects "Pepperoni" and "Mushroom"
-  * Output: Pepperonis and mushrooms are added to the pizza object
+**Behavior**: Program will allow users to specify another currency to convert the USD amount
+  * Input: User selects the Mexican peso
+  * Output: Program accounts for user selection
 
-  **Behavior**: Program will allow users to add multiple pizzas to their order
-  * Input: User clicks "Add another pizza"
-  * Output: Previous pizza is saved and new selections can be made for another pizza
+**Behavior**: Program will call the exchange rate API to ensure the currency exchange rate is correct
+ * Input: Program calls API
+ * Output: Correct amount based on exchange rate
 
-**Behavior**: Program will return a price to the user, depending on their selections
- * Input: Users clicks "Checkout"
- * Output: "Your total: $12.00"
+**Behavior**: Program will convert USD amount into specified currency amount
+  * Input: 132.00 USD
+  * Output: 2969.10 peso
 
 ## Setup/Installation Requirements
 
@@ -36,14 +36,22 @@ Software Requirements:
 
 To Open:
 
-1.  Navigate to the [language-selector respository](https://github.com/kate-skorija/pizza-parlor) or open your terminal
+1.  Navigate to the [currency-exchange respository](https://github.com/kate-skorija/currency-exchange) or open your terminal
 
 2. Clone this project using the GitHub button or the command:
 `$ git clone https://github.com/kate-skorija/pizza-parlor.git`
 
-3. Navigate to the `pizza-parlor` directory in your editor of choice, or use [Visual Studio Code](https://code.visualstudio.com/)
+3. Navigate to the `currency-exchange` directory in your editor of choice, or use [Visual Studio Code](https://code.visualstudio.com/)
 
-4. Open in the browser of your choice by dragging and dropping the `index.html` file into a browser window  
+4. Create a .env file in the root directory of your cloned project. This is where you will store your personal API key. The .env file has already been added to the .gitignore file of this repository.
+
+5. Navigate to the [exchange rate API](https://www.exchangerate-api.com/)
+
+6. Create a free account to get a free API key.
+
+7. Copy and paste your personal API key to store it in your .env file. Example: API_KEY = YOUR UNIQUE API KEY GOES HERE.
+
+8. Once your API key is set up, open the project in the browser of your choice by dragging and dropping the `index.html` file into a browser window.
 
 ## Known Bugs
 
@@ -62,6 +70,8 @@ If there are any issues or questions, please reach out to me through [my GitHub 
 *  [Bootstrap](https://developer.mozilla.org/en-US/docs/Glossary/Bootstrap)
 *  [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 *  [jQuery](https://developer.mozilla.org/en-US/docs/Glossary/jQuery)
+*  [Webpack](https://webpack.js.org/)
+*  [Jest](https://jestjs.io/en/)
 
 ### License
 
