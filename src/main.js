@@ -10,19 +10,21 @@ $(document).ready(function() {
     const usd = parseInt($("#usdInput").val());
     const otherCurrency = $("#otherCurrency").val();
 
-    async function getResults() {
+    (async () => {
       const apiResponse = await getRates();
       if (apiResponse instanceof Error) {
         $("#results").html(`There has been an error processing your request: ${apiResponse}.`);
       } else {
         displayCurrency(apiResponse);
       }
-    }  
+    })(); 
 
     function displayCurrency(apiResponseParam) {
       let convertedAmount;
       const currencies = Object.keys(apiResponseParam.conversion_rates);
-      if (!otherCurrency) {
+      if (!apiResponseParam.conversion_rates) {
+        $("#results").html(`There has been an error processing your request: ${apiResponseParam}.`)
+      } else if (!otherCurrency) {
         $("#results").text("This currency exchanger does not support that particular currency. Please select another.");
       } else {
         currencies.forEach(function(currency) {
@@ -33,7 +35,5 @@ $(document).ready(function() {
         });
       }
     }
-
-    getResults();
   });
 });
