@@ -13,8 +13,8 @@ $(document).ready(function() {
     (async () => {
       const apiResponse = await getRates();
       console.log(apiResponse);
-      if (typeof apiResponse != 'object') {
-        $(".#results").html(`There has been an error processing your request: ${apiResponse}.`);
+      if (apiResponse instanceof Error) {
+        $("#results").html(`There has been an error processing your request: ${apiResponse}.`);
       } else if (otherCurrency === "AED") {
         let convertedAmount = (usd * (apiResponse.conversion_rates.AED).toFixed(2));
         $("#results").text(`${convertedAmount} AED`);

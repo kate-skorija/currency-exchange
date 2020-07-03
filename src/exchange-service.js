@@ -1,12 +1,18 @@
 export async function getRates() {
-  let response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`);
-  let jsonifiedResponse;
-  if (!response.ok) {
-    jsonifiedResponse = response.statusText;
-  } else {
-    jsonifiedResponse = await response.json();
+  try {
+    let response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latst/USD`);
+    let jsonifiedResponse;
+    if (!response.ok) {
+      jsonifiedResponse = response.statusText;
+      throw Error("Error: " + jsonifiedResponse);
+    } else {
+      jsonifiedResponse = await response.json();
+    }
+    return jsonifiedResponse;
+  } catch(error) {
+    console.error(`Error: ${error.message}`);
+    return error;
   }
-  return jsonifiedResponse;
 }
 
 // export async function getRates() {
