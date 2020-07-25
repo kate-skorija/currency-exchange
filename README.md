@@ -6,7 +6,7 @@
 
 ## Description
 
-This is a currency exchanger website. It calls on an exchange rate API to ensure the user recieves the most recent exchange rate available. 
+This week I focused on learning about asynchronous code with JavaScript, and how to apply asynchrony to make API calls. To demonstrate what I've learned, I've created this currency exchange website. It calls on an exchange rate API to ensure the user recieves the most recent exchange rate available. 
 
 ## Specifications
 
@@ -39,7 +39,7 @@ To Open:
 1.  Navigate to the [currency-exchange respository](https://github.com/kate-skorija/currency-exchange) or open your terminal
 
 2. Clone this project using the GitHub button or the command:
-`$ git clone https://github.com/kate-skorija/pizza-parlor.git`
+`$ git clone https://github.com/kate-skorija/currency-exchange.git`
 
 3. Navigate to the `currency-exchange` directory in your editor of choice, or use [Visual Studio Code](https://code.visualstudio.com/)
 

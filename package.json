@@ -1,7 +1,7 @@
 {
-  "name": "triangle-with-testing",
+  "name": "currency-exchange",
   "version": "1.0.0",
-  "description": "",
+  "description": "asynchrony and api practice",
   "main": "main.js",
   "scripts": {
     "build": "webpack --mode development",
