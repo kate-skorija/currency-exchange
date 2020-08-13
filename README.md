@@ -6,7 +6,7 @@
 
 ## Description
 
-This week I focused on learning about asynchronous code with JavaScript, and how to apply asynchrony to make API calls. To demonstrate what I've learned, I've created this currency exchange website. It calls on an exchange rate API to ensure the user recieves the most recent exchange rate available. 
+This week I focused on learning about asynchronous code with JavaScript, and how to apply asynchrony to make API calls. To demonstrate what I've learned, I've created this currency exchange website. It calls on an exchange rate API to ensure the user recieves the most recent exchange rate available. Visit the published site on [gh-pages](https://kate-skorija.github.io/currency-exchange/).
 
 ## Specifications
 
